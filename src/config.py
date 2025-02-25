@@ -44,7 +44,7 @@ class Config:
             self.gvars_file_path = "gvars.json"
         self.modified_files = os.environ.get("INPUT_MODIFIED_FILES", None)
         print(f"INPUT_MODIFIED_FILES = {self.modified_files}")
-        if self.modified_files is None:
+        if self.modified_files in [None, ""]:
             raise Exception("Modified files ENV not found. Exiting...")
         self.modified_files = json.loads(self.modified_files)
         print(" - [CONFIG]: Config loaded.")
